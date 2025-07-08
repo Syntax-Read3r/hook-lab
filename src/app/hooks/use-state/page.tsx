@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Navbar from '@/components/Navbar';
 
 export default function UseStatePage() {
   const [count, setCount] = useState(0);
@@ -29,11 +30,34 @@ export default function UseStatePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
+      <div className="p-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
           useState Hook Demo
         </h1>
+        
+        {/* Hook Description */}
+        <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+          <h2 className="text-xl font-semibold mb-4 text-gray-700">What is useState?</h2>
+          <p className="text-gray-700 mb-4">
+            <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">useState</code> is a React Hook that lets you add state to functional components. 
+            It returns an array with two elements: the current state value and a function to update it.
+          </p>
+          <div className="bg-gray-50 p-4 rounded border border-gray-200">
+            <h3 className="text-lg font-medium mb-2 text-gray-800">Basic Syntax:</h3>
+            <pre className="bg-gray-800 text-green-400 p-3 rounded overflow-x-auto">
+              <code>{`const [state, setState] = useState(initialValue);
+
+// Examples:
+const [count, setCount] = useState(0);
+const [name, setName] = useState('John');
+const [items, setItems] = useState([]);
+const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
+            </pre>
+          </div>
+        </div>
         
         <div className="space-y-8">
           {/* Counter Section */}
@@ -175,30 +199,71 @@ export default function UseStatePage() {
           {/* Edge Cases Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4 text-gray-700">Edge Cases & Best Practices</h2>
-            <div className="space-y-4 text-sm">
-              <div className="bg-blue-50 p-3 rounded border border-blue-200">
+            <div className="space-y-6 text-sm">
+              <div className="bg-blue-50 p-4 rounded border border-blue-200">
                 <strong className="text-blue-800">🔄 Functional Updates:</strong> <span className="text-blue-700">Use when new state depends on previous state</span>
                 <br />
-                <code className="text-blue-900 bg-blue-100 px-2 py-1 rounded font-medium">setCount(prev => prev + 1)</code> <span className="text-blue-800">vs</span> <code className="text-gray-800 bg-gray-100 px-2 py-1 rounded font-medium">setCount(count + 1)</code>
+                <div className="mt-2 mb-2">
+                  <code className="text-blue-900 bg-blue-100 px-2 py-1 rounded font-medium">setCount(prev => prev + 1)</code> <span className="text-blue-800">vs</span> <code className="text-gray-800 bg-gray-100 px-2 py-1 rounded font-medium">setCount(count + 1)</code>
+                </div>
+                <p className="text-blue-700 text-xs mt-2">
+                  <strong>Why functional updates?</strong> They ensure you're working with the latest state value, especially important in async operations, 
+                  event handlers, and when multiple updates happen quickly. The functional approach prevents stale closures.
+                </p>
               </div>
-              <div className="bg-green-50 p-3 rounded border border-green-200">
+              
+              <div className="bg-green-50 p-4 rounded border border-green-200">
                 <strong className="text-green-800">🔒 Immutable Updates:</strong> <span className="text-green-700">Always create new objects/arrays</span>
                 <br />
-                <span className="text-green-800">Arrays:</span> <code className="text-green-900 bg-green-100 px-2 py-1 rounded font-medium">[...prev, newItem]</code> <span className="text-green-800">|</span> <span className="text-green-800">Objects:</span> <code className="text-green-900 bg-green-100 px-2 py-1 rounded font-medium">{'{ ...prev, newProp: value }'}</code>
+                <div className="mt-2 mb-2">
+                  <span className="text-green-800">Arrays:</span> <code className="text-green-900 bg-green-100 px-2 py-1 rounded font-medium">[...prev, newItem]</code> <span className="text-green-800">|</span> <span className="text-green-800">Objects:</span> <code className="text-green-900 bg-green-100 px-2 py-1 rounded font-medium">{'{ ...prev, newProp: value }'}</code>
+                </div>
+                <p className="text-green-700 text-xs mt-2">
+                  <strong>Why immutability?</strong> React uses Object.is() comparison to detect state changes. If you mutate the original object/array, 
+                  React won't detect the change and won't re-render. Always create new references for updates.
+                </p>
               </div>
-              <div className="bg-red-50 p-3 rounded border border-red-200">
-                <strong className="text-red-800">🕒 Stale Closure:</strong> <span className="text-red-700">In event handlers, use functional updates</span>
+              
+              <div className="bg-red-50 p-4 rounded border border-red-200">
+                <strong className="text-red-800">🕒 Stale Closure:</strong> <span className="text-red-700">A common pitfall in async operations</span>
                 <br />
-                <code className="text-red-900 bg-red-100 px-2 py-1 rounded font-medium">setTimeout(() => setCount(prev => prev + 1), 1000)</code>
+                <div className="mt-2 mb-2">
+                  <code className="text-red-900 bg-red-100 px-2 py-1 rounded font-medium">setTimeout(() => setCount(prev => prev + 1), 1000)</code>
+                </div>
+                <p className="text-red-700 text-xs mt-2">
+                  <strong>The problem:</strong> In closures (like setTimeout, useEffect), the <code className="bg-red-100 px-1 rounded">count</code> variable 
+                  captures the value from when the closure was created, not the current value. Using functional updates 
+                  <code className="bg-red-100 px-1 rounded">prev => prev + 1</code> ensures you get the latest state.
+                </p>
               </div>
-              <div className="bg-yellow-50 p-3 rounded border border-yellow-200">
-                <strong className="text-yellow-800">📦 Batch Updates:</strong> <span className="text-yellow-700">React batches state updates in event handlers</span>
+              
+              <div className="bg-yellow-50 p-4 rounded border border-yellow-200">
+                <strong className="text-yellow-800">📦 Batch Updates:</strong> <span className="text-yellow-700">React optimizes performance by batching updates</span>
                 <br />
-                <span className="text-yellow-800">Multiple</span> <code className="text-yellow-900 bg-yellow-100 px-2 py-1 rounded font-medium">setState</code> <span className="text-yellow-800">calls in one handler = one re-render</span>
+                <div className="mt-2 mb-2">
+                  <span className="text-yellow-800">Multiple</span> <code className="text-yellow-900 bg-yellow-100 px-2 py-1 rounded font-medium">setState</code> <span className="text-yellow-800">calls in one handler = one re-render</span>
+                </div>
+                <p className="text-yellow-700 text-xs mt-2">
+                  <strong>How it works:</strong> React automatically batches multiple state updates in event handlers into a single re-render for better performance. 
+                  In React 18+, this batching also happens in promises, timeouts, and other async operations (Automatic Batching).
+                </p>
+              </div>
+              
+              <div className="bg-purple-50 p-4 rounded border border-purple-200">
+                <strong className="text-purple-800">⚡ State Updates are Asynchronous:</strong> <span className="text-purple-700">setState doesn't immediately update the state</span>
+                <br />
+                <div className="mt-2 mb-2">
+                  <code className="text-purple-900 bg-purple-100 px-2 py-1 rounded font-medium">setCount(count + 1); console.log(count); // Still old value!</code>
+                </div>
+                <p className="text-purple-700 text-xs mt-2">
+                  <strong>Remember:</strong> State updates are scheduled and happen after the current execution. If you need to perform actions 
+                  after state updates, use useEffect or access the new state in the next render cycle.
+                </p>
               </div>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
