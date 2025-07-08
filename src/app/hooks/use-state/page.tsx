@@ -8,6 +8,12 @@ export default function UseStatePage() {
   const [isToggled, setIsToggled] = useState(false);
   const [items, setItems] = useState<string[]>(['Item 1', 'Item 2']);
   const [user, setUser] = useState({ name: 'John', age: 25 });
+  
+  // Code visibility states
+  const [showCounterCode, setShowCounterCode] = useState(false);
+  const [showToggleCode, setShowToggleCode] = useState(false);
+  const [showArrayCode, setShowArrayCode] = useState(false);
+  const [showObjectCode, setShowObjectCode] = useState(false);
 
   // Helper function to add new item to array
   const addItem = () => {
@@ -62,7 +68,15 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
         <div className="space-y-8">
           {/* Counter Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4 text-gray-700">Counter Example</h2>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold text-gray-700">Counter Example</h2>
+              <button
+                onClick={() => setShowCounterCode(!showCounterCode)}
+                className="px-3 py-1 bg-gray-600 text-white text-sm rounded hover:bg-gray-700 transition-colors"
+              >
+                {showCounterCode ? 'Hide Code' : 'View Code'}
+              </button>
+            </div>
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => setCount(prev => prev - 1)}
@@ -87,11 +101,61 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
             <p className="text-sm text-gray-700 mt-2">
               ✅ Uses functional update: <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">setCount(prev => prev + 1)</code>
             </p>
+            
+            {showCounterCode && (
+              <div className="mt-4 bg-gray-50 p-4 rounded border border-gray-200">
+                <h3 className="text-sm font-medium text-gray-700 mb-2">Counter Example Code:</h3>
+                <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
+                  <code>
+                    <span className="text-green-400">// useState Hook: Initialize counter with 0</span>{'\n'}
+                    <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">count</span><span className="text-white">, </span><span className="text-yellow-300">setCount</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">(</span><span className="text-orange-400">0</span><span className="text-white">);</span>{'\n\n'}
+                    
+                    <span className="text-green-400">// JSX: Counter UI with three buttons</span>{'\n'}
+                    <span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"flex items-center space-x-4"</span><span className="text-red-400">&gt;</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-green-400">{'// Decrement button - uses functional update'}</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&lt;button</span>{'\n'}
+                    <span className="text-white">    </span><span className="text-green-300">onClick</span><span className="text-white">=</span><span className="text-yellow-200">{'{() => '}</span><span className="text-yellow-300">setCount</span><span className="text-yellow-200">{'(prev => prev - 1)}'}</span>{'\n'}
+                    <span className="text-white">    </span><span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&gt;</span>{'\n'}
+                    <span className="text-white">    -</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&lt;/button&gt;</span>{'\n'}
+                    
+                    <span className="text-white">  </span><span className="text-green-400">{'// Display current count value'}</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&lt;span</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"text-2xl font-bold text-gray-800"</span><span className="text-red-400">&gt;</span><span className="text-yellow-200">{'{'}</span><span className="text-yellow-300">count</span><span className="text-yellow-200">{'}'}</span><span className="text-red-400">&lt;/span&gt;</span>{'\n'}
+                    
+                    <span className="text-white">  </span><span className="text-green-400">{'// Increment button - uses functional update'}</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&lt;button</span>{'\n'}
+                    <span className="text-white">    </span><span className="text-green-300">onClick</span><span className="text-white">=</span><span className="text-yellow-200">{'{() => '}</span><span className="text-yellow-300">setCount</span><span className="text-yellow-200">{'(prev => prev + 1)}'}</span>{'\n'}
+                    <span className="text-white">    </span><span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&gt;</span>{'\n'}
+                    <span className="text-white">    +</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&lt;/button&gt;</span>{'\n'}
+                    
+                    <span className="text-white">  </span><span className="text-green-400">{'// Reset button - sets count directly to 0'}</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&lt;button</span>{'\n'}
+                    <span className="text-white">    </span><span className="text-green-300">onClick</span><span className="text-white">=</span><span className="text-yellow-200">{'{() => '}</span><span className="text-yellow-300">setCount</span><span className="text-yellow-200">{'(0)}'}</span>{'\n'}
+                    <span className="text-white">    </span><span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors"</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&gt;</span>{'\n'}
+                    <span className="text-white">    Reset</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&lt;/button&gt;</span>{'\n'}
+                    <span className="text-red-400">&lt;/div&gt;</span>
+                  </code>
+                </pre>
+              </div>
+            )}
           </div>
 
           {/* Toggle Switch Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4 text-gray-700">Toggle Switch Example</h2>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold text-gray-700">Toggle Switch Example</h2>
+              <button
+                onClick={() => setShowToggleCode(!showToggleCode)}
+                className="px-3 py-1 bg-gray-600 text-white text-sm rounded hover:bg-gray-700 transition-colors"
+              >
+                {showToggleCode ? 'Hide Code' : 'View Code'}
+              </button>
+            </div>
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => setIsToggled(prev => !prev)}
@@ -110,11 +174,52 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
             <p className="text-sm text-gray-700 mt-2">
               ✅ Uses functional update: <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">setIsToggled(prev => !prev)</code>
             </p>
+            
+            {showToggleCode && (
+              <div className="mt-4 bg-gray-50 p-4 rounded border border-gray-200">
+                <h3 className="text-sm font-medium text-gray-700 mb-2">Toggle Switch Example Code:</h3>
+                <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
+                  <code>
+                    <span className="text-green-400">// useState Hook: Initialize toggle state with false</span>{'\n'}
+                    <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">isToggled</span><span className="text-white">, </span><span className="text-yellow-300">setIsToggled</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">(</span><span className="text-orange-400">false</span><span className="text-white">);</span>{'\n\n'}
+                    
+                    <span className="text-green-400">// JSX: Toggle switch with conditional styling</span>{'\n'}
+                    <span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"flex items-center space-x-4"</span><span className="text-red-400">&gt;</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-green-400">{'// Toggle button - uses functional update to flip boolean'}</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&lt;button</span>{'\n'}
+                    <span className="text-white">    </span><span className="text-green-300">onClick</span><span className="text-white">=</span><span className="text-yellow-200">{'{() => '}</span><span className="text-yellow-300">setIsToggled</span><span className="text-yellow-200">{'(prev => !prev)}'}</span>{'\n'}
+                    <span className="text-white">    </span><span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">{'{`px-6 py-3 rounded-lg font-medium transition-colors ${'}</span>{'\n'}
+                    <span className="text-white">      </span><span className="text-yellow-300">isToggled</span>{'\n'}
+                    <span className="text-white">        </span><span className="text-cyan-400">?</span> <span className="text-yellow-200">'bg-blue-500 text-white hover:bg-blue-600'</span>{'\n'}
+                    <span className="text-white">        </span><span className="text-cyan-400">:</span> <span className="text-yellow-200">'bg-gray-200 text-gray-900 hover:bg-gray-300 border-2 border-gray-400'</span>{'\n'}
+                    <span className="text-yellow-200">    {'}`}'}</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&gt;</span>{'\n'}
+                    <span className="text-white">    </span><span className="text-green-400">{'// Conditional text based on toggle state'}</span>{'\n'}
+                    <span className="text-white">    </span><span className="text-yellow-200">{'{'}</span><span className="text-yellow-300">isToggled</span> <span className="text-cyan-400">?</span> <span className="text-yellow-200">'ON'</span> <span className="text-cyan-400">:</span> <span className="text-yellow-200">'OFF'</span><span className="text-yellow-200">{'}'}</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&lt;/button&gt;</span>{'\n'}
+                    
+                    <span className="text-white">  </span><span className="text-green-400">{'// Status indicator showing current state'}</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&lt;span</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"text-gray-600"</span><span className="text-red-400">&gt;</span>{'\n'}
+                    <span className="text-white">    Status: </span><span className="text-red-400">&lt;strong&gt;</span><span className="text-yellow-200">{'{'}</span><span className="text-yellow-300">isToggled</span> <span className="text-cyan-400">?</span> <span className="text-yellow-200">'Enabled'</span> <span className="text-cyan-400">:</span> <span className="text-yellow-200">'Disabled'</span><span className="text-yellow-200">{'}'}</span><span className="text-red-400">&lt;/strong&gt;</span>{'\n'}
+                    <span className="text-white">  </span><span className="text-red-400">&lt;/span&gt;</span>{'\n'}
+                    <span className="text-red-400">&lt;/div&gt;</span>
+                  </code>
+                </pre>
+              </div>
+            )}
           </div>
 
           {/* Array State Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4 text-gray-700">Array State Updates</h2>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold text-gray-700">Array State Updates</h2>
+              <button
+                onClick={() => setShowArrayCode(!showArrayCode)}
+                className="px-3 py-1 bg-gray-600 text-white text-sm rounded hover:bg-gray-700 transition-colors"
+              >
+                {showArrayCode ? 'Hide Code' : 'View Code'}
+              </button>
+            </div>
             <div className="space-y-4">
               <div className="flex space-x-2">
                 <button
@@ -150,12 +255,67 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                 <br />
                 <code className="text-green-700 bg-green-50 px-2 py-1 rounded">✅ setItems(prev => [...prev, newItem])</code>
               </div>
+              
+              {showArrayCode && (
+                <div className="mt-4 bg-gray-50 p-4 rounded border border-gray-200">
+                  <h3 className="text-sm font-medium text-gray-700 mb-2">Array State Updates Code:</h3>
+                  <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
+                    <code>
+                      <span className="text-green-400">// useState Hook: Initialize array with default items</span>{'\n'}
+                      <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">items</span><span className="text-white">, </span><span className="text-yellow-300">setItems</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">&lt;</span><span className="text-blue-300">string</span><span className="text-white">[]&gt;([</span><span className="text-yellow-200">'Item 1'</span><span className="text-white">, </span><span className="text-yellow-200">'Item 2'</span><span className="text-white">]);</span>{'\n\n'}
+                      
+                      <span className="text-green-400">// Helper function: Add new item to array (immutable)</span>{'\n'}
+                      <span className="text-blue-400">const</span> <span className="text-yellow-300">addItem</span> <span className="text-white">=</span> <span className="text-white">() => </span><span className="text-yellow-200">{'{'}</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-green-400">// Create new item with incremental number</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-blue-400">const</span> <span className="text-yellow-300">newItem</span> <span className="text-white">=</span> <span className="text-yellow-200">`Item ${'{items.length + 1}'}`</span><span className="text-white">;</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-green-400">// Use spread operator to create new array</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-yellow-300">setItems</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=></span> <span className="text-white">[...</span><span className="text-yellow-300">prev</span><span className="text-white">, </span><span className="text-yellow-300">newItem</span><span className="text-white">]);</span>{'\n'}
+                      <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
+                      
+                      <span className="text-green-400">// Helper function: Remove item by index (immutable)</span>{'\n'}
+                      <span className="text-blue-400">const</span> <span className="text-yellow-300">removeItem</span> <span className="text-white">=</span> <span className="text-white">(</span><span className="text-yellow-300">index</span><span className="text-white">:</span> <span className="text-blue-300">number</span><span className="text-white">) => </span><span className="text-yellow-200">{'{'}</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-green-400">// Filter out item at specified index</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-yellow-300">setItems</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=></span> <span className="text-yellow-300">prev</span><span className="text-white">.</span><span className="text-purple-400">filter</span><span className="text-white">((</span><span className="text-yellow-300">_</span><span className="text-white">, </span><span className="text-yellow-300">i</span><span className="text-white">) => </span><span className="text-yellow-300">i</span> <span className="text-white">!==</span> <span className="text-yellow-300">index</span><span className="text-white">));</span>{'\n'}
+                      <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
+                      
+                      <span className="text-green-400">// JSX: Array management UI</span>{'\n'}
+                      <span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"space-y-4"</span><span className="text-red-400">&gt;</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-green-400">{'// Action buttons'}</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"flex space-x-2"</span><span className="text-red-400">&gt;</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-red-400">&lt;button</span> <span className="text-green-300">onClick</span><span className="text-white">=</span><span className="text-yellow-200">{'{addItem}'}</span><span className="text-red-400">&gt;</span><span className="text-white">Add Item</span><span className="text-red-400">&lt;/button&gt;</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-red-400">&lt;button</span> <span className="text-green-300">onClick</span><span className="text-white">=</span><span className="text-yellow-200">{'{() => setItems([])}'}</span><span className="text-red-400">&gt;</span><span className="text-white">Clear All</span><span className="text-red-400">&lt;/button&gt;</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-red-400">&lt;/div&gt;</span>{'\n'}
+                      
+                      <span className="text-white">  </span><span className="text-green-400">{'// Dynamic list rendering'}</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"space-y-2"</span><span className="text-red-400">&gt;</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-yellow-200">{'{'}</span><span className="text-yellow-300">items</span><span className="text-white">.</span><span className="text-purple-400">map</span><span className="text-white">((</span><span className="text-yellow-300">item</span><span className="text-white">, </span><span className="text-yellow-300">index</span><span className="text-white">) => (</span>{'\n'}
+                      <span className="text-white">      </span><span className="text-red-400">&lt;div</span> <span className="text-green-300">key</span><span className="text-white">=</span><span className="text-yellow-200">{'{index}'}</span><span className="text-red-400">&gt;</span>{'\n'}
+                      <span className="text-white">        </span><span className="text-red-400">&lt;span&gt;</span><span className="text-yellow-200">{'{'}</span><span className="text-yellow-300">item</span><span className="text-yellow-200">{'}'}</span><span className="text-red-400">&lt;/span&gt;</span>{'\n'}
+                      <span className="text-white">        </span><span className="text-red-400">&lt;button</span> <span className="text-green-300">onClick</span><span className="text-white">=</span><span className="text-yellow-200">{'{() => removeItem(index)}'}</span><span className="text-red-400">&gt;</span>{'\n'}
+                      <span className="text-white">          Remove</span>{'\n'}
+                      <span className="text-white">        </span><span className="text-red-400">&lt;/button&gt;</span>{'\n'}
+                      <span className="text-white">      </span><span className="text-red-400">&lt;/div&gt;</span>{'\n'}
+                      <span className="text-white">    ))</span><span className="text-yellow-200">{'}'}</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-red-400">&lt;/div&gt;</span>{'\n'}
+                      <span className="text-red-400">&lt;/div&gt;</span>
+                    </code>
+                  </pre>
+                </div>
+              )}
             </div>
           </div>
 
           {/* Object State Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4 text-gray-700">Object State Updates</h2>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold text-gray-700">Object State Updates</h2>
+              <button
+                onClick={() => setShowObjectCode(!showObjectCode)}
+                className="px-3 py-1 bg-gray-600 text-white text-sm rounded hover:bg-gray-700 transition-colors"
+              >
+                {showObjectCode ? 'Hide Code' : 'View Code'}
+              </button>
+            </div>
             <div className="space-y-4">
               <div className="bg-gray-100 p-4 rounded border border-gray-200">
                 <p className="text-gray-800"><strong className="text-gray-900">Name:</strong> {user.name}</p>
@@ -193,6 +353,64 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                 <br />
                 <code className="text-green-700 bg-green-50 px-2 py-1 rounded">✅ setUser(prev => ({'{ ...prev, name: newName }'}))</code>
               </div>
+              
+              {showObjectCode && (
+                <div className="mt-4 bg-gray-50 p-4 rounded border border-gray-200">
+                  <h3 className="text-sm font-medium text-gray-700 mb-2">Object State Updates Code:</h3>
+                  <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
+                    <code>
+                      <span className="text-green-400">// useState Hook: Initialize object with default user data</span>{'\n'}
+                      <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">user</span><span className="text-white">, </span><span className="text-yellow-300">setUser</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">({'{ name: '}</span><span className="text-yellow-200">'John'</span><span className="text-white">, age: </span><span className="text-orange-400">25</span> <span className="text-white">{'}'});</span>{'\n\n'}
+                      
+                      <span className="text-green-400">// Helper function: Update user name (immutable)</span>{'\n'}
+                      <span className="text-blue-400">const</span> <span className="text-yellow-300">updateUserName</span> <span className="text-white">=</span> <span className="text-white">(</span><span className="text-yellow-300">newName</span><span className="text-white">:</span> <span className="text-blue-300">string</span><span className="text-white">) => </span><span className="text-yellow-200">{'{'}</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-green-400">// Use spread operator to create new object</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-yellow-300">setUser</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=></span> <span className="text-white">({'{ ...prev, name: newName }'});</span>{'\n'}
+                      <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
+                      
+                      <span className="text-green-400">// Helper function: Increment user age (immutable)</span>{'\n'}
+                      <span className="text-blue-400">const</span> <span className="text-yellow-300">updateUserAge</span> <span className="text-white">=</span> <span className="text-white">() => </span><span className="text-yellow-200">{'{'}</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-green-400">// Preserve existing properties, update only age</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-yellow-300">setUser</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=></span> <span className="text-white">({'{ ...prev, age: prev.age + 1 }'});</span>{'\n'}
+                      <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
+                      
+                      <span className="text-green-400">// JSX: Object state management UI</span>{'\n'}
+                      <span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"space-y-4"</span><span className="text-red-400">&gt;</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-green-400">{'// Display current user data'}</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"bg-gray-100 p-4 rounded border border-gray-200"</span><span className="text-red-400">&gt;</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-red-400">&lt;p&gt;</span><span className="text-red-400">&lt;strong&gt;</span><span className="text-white">Name:</span><span className="text-red-400">&lt;/strong&gt;</span> <span className="text-yellow-200">{'{'}</span><span className="text-yellow-300">user.name</span><span className="text-yellow-200">{'}'}</span><span className="text-red-400">&lt;/p&gt;</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-red-400">&lt;p&gt;</span><span className="text-red-400">&lt;strong&gt;</span><span className="text-white">Age:</span><span className="text-red-400">&lt;/strong&gt;</span> <span className="text-yellow-200">{'{'}</span><span className="text-yellow-300">user.age</span><span className="text-yellow-200">{'}'}</span><span className="text-red-400">&lt;/p&gt;</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-red-400">&lt;/div&gt;</span>{'\n'}
+                      
+                      <span className="text-white">  </span><span className="text-green-400">{'// User interaction controls'}</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"flex space-x-2"</span><span className="text-red-400">&gt;</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-green-400">{'// Input for name updates'}</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-red-400">&lt;input</span>{'\n'}
+                      <span className="text-white">      </span><span className="text-green-300">type</span><span className="text-white">=</span><span className="text-yellow-200">"text"</span>{'\n'}
+                      <span className="text-white">      </span><span className="text-green-300">placeholder</span><span className="text-white">=</span><span className="text-yellow-200">"Enter new name"</span>{'\n'}
+                      <span className="text-white">      </span><span className="text-green-300">onKeyDown</span><span className="text-white">=</span><span className="text-yellow-200">{'{(e) => {'}</span>{'\n'}
+                      <span className="text-white">        </span><span className="text-cyan-400">if</span> <span className="text-white">(</span><span className="text-yellow-300">e.key</span> <span className="text-white">===</span> <span className="text-yellow-200">'Enter'</span><span className="text-white">) </span><span className="text-yellow-200">{'{'}</span>{'\n'}
+                      <span className="text-white">          </span><span className="text-yellow-300">updateUserName</span><span className="text-white">(</span><span className="text-yellow-300">e.currentTarget.value</span><span className="text-white">);</span>{'\n'}
+                      <span className="text-white">          </span><span className="text-yellow-300">e.currentTarget.value</span> <span className="text-white">=</span> <span className="text-yellow-200">''</span><span className="text-white">;</span>{'\n'}
+                      <span className="text-white">        </span><span className="text-yellow-200">{'}'}</span>{'\n'}
+                      <span className="text-white">      </span><span className="text-yellow-200">{'}'}</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-red-400">/&gt;</span>{'\n'}
+                      
+                      <span className="text-white">    </span><span className="text-green-400">{'// Age increment button'}</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-red-400">&lt;button</span> <span className="text-green-300">onClick</span><span className="text-white">=</span><span className="text-yellow-200">{'{updateUserAge}'}</span><span className="text-red-400">&gt;</span>{'\n'}
+                      <span className="text-white">      Increase Age</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-red-400">&lt;/button&gt;</span>{'\n'}
+                      
+                      <span className="text-white">    </span><span className="text-green-400">{'// Reset to default values'}</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-red-400">&lt;button</span> <span className="text-green-300">onClick</span><span className="text-white">=</span><span className="text-yellow-200">{'{() => setUser({ name: \'John\', age: 25 })}'}</span><span className="text-red-400">&gt;</span>{'\n'}
+                      <span className="text-white">      Reset User</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-red-400">&lt;/button&gt;</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-red-400">&lt;/div&gt;</span>{'\n'}
+                      <span className="text-red-400">&lt;/div&gt;</span>
+                    </code>
+                  </pre>
+                </div>
+              )}
             </div>
           </div>
 
