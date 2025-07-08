@@ -60,8 +60,8 @@ export default function UseStatePage() {
                 Reset
               </button>
             </div>
-            <p className="text-sm text-gray-600 mt-2">
-              =� Uses functional update: <code>setCount(prev => prev + 1)</code>
+            <p className="text-sm text-gray-700 mt-2">
+              ✅ Uses functional update: <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">setCount(prev => prev + 1)</code>
             </p>
           </div>
 
@@ -74,7 +74,7 @@ export default function UseStatePage() {
                 className={`px-6 py-3 rounded-lg font-medium transition-colors ${
                   isToggled
                     ? 'bg-blue-500 text-white hover:bg-blue-600'
-                    : 'bg-gray-300 text-gray-700 hover:bg-gray-400'
+                    : 'bg-gray-200 text-gray-900 hover:bg-gray-300 border-2 border-gray-400'
                 }`}
               >
                 {isToggled ? 'ON' : 'OFF'}
@@ -83,8 +83,8 @@ export default function UseStatePage() {
                 Status: <strong>{isToggled ? 'Enabled' : 'Disabled'}</strong>
               </span>
             </div>
-            <p className="text-sm text-gray-600 mt-2">
-              =� Uses functional update: <code>setIsToggled(prev => !prev)</code>
+            <p className="text-sm text-gray-700 mt-2">
+              ✅ Uses functional update: <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">setIsToggled(prev => !prev)</code>
             </p>
           </div>
 
@@ -108,23 +108,23 @@ export default function UseStatePage() {
               </div>
               <div className="space-y-2">
                 {items.map((item, index) => (
-                  <div key={index} className="flex items-center justify-between bg-gray-50 p-2 rounded">
-                    <span>{item}</span>
+                  <div key={index} className="flex items-center justify-between bg-gray-100 p-3 rounded border border-gray-200">
+                    <span className="text-gray-800 font-medium">{item}</span>
                     <button
                       onClick={() => removeItem(index)}
-                      className="px-2 py-1 bg-red-400 text-white text-sm rounded hover:bg-red-500 transition-colors"
+                      className="px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600 transition-colors"
                     >
                       Remove
                     </button>
                   </div>
                 ))}
               </div>
-              <div className="text-sm text-gray-600 bg-yellow-50 p-3 rounded">
-                <strong>� Common Gotcha:</strong> Don't mutate arrays directly!
+              <div className="text-sm text-gray-800 bg-yellow-50 p-3 rounded border border-yellow-200">
+                <strong>⚠️ Common Gotcha:</strong> Don't mutate arrays directly!
                 <br />
-                <code className="text-red-600">L items.push(newItem)</code>
+                <code className="text-red-700 bg-red-50 px-2 py-1 rounded">❌ items.push(newItem)</code>
                 <br />
-                <code className="text-green-600"> setItems(prev => [...prev, newItem])</code>
+                <code className="text-green-700 bg-green-50 px-2 py-1 rounded">✅ setItems(prev => [...prev, newItem])</code>
               </div>
             </div>
           </div>
@@ -133,9 +133,9 @@ export default function UseStatePage() {
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4 text-gray-700">Object State Updates</h2>
             <div className="space-y-4">
-              <div className="bg-gray-50 p-4 rounded">
-                <p><strong>Name:</strong> {user.name}</p>
-                <p><strong>Age:</strong> {user.age}</p>
+              <div className="bg-gray-100 p-4 rounded border border-gray-200">
+                <p className="text-gray-800"><strong className="text-gray-900">Name:</strong> {user.name}</p>
+                <p className="text-gray-800"><strong className="text-gray-900">Age:</strong> {user.age}</p>
               </div>
               <div className="flex space-x-2">
                 <input
@@ -147,7 +147,7 @@ export default function UseStatePage() {
                       e.currentTarget.value = '';
                     }
                   }}
-                  className="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="px-3 py-2 border-2 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-800 placeholder-gray-500"
                 />
                 <button
                   onClick={updateUserAge}
@@ -162,12 +162,12 @@ export default function UseStatePage() {
                   Reset User
                 </button>
               </div>
-              <div className="text-sm text-gray-600 bg-yellow-50 p-3 rounded">
-                <strong>� Common Gotcha:</strong> Don't mutate objects directly!
+              <div className="text-sm text-gray-800 bg-yellow-50 p-3 rounded border border-yellow-200">
+                <strong>⚠️ Common Gotcha:</strong> Don't mutate objects directly!
                 <br />
-                <code className="text-red-600">L user.name = newName</code>
+                <code className="text-red-700 bg-red-50 px-2 py-1 rounded">❌ user.name = newName</code>
                 <br />
-                <code className="text-green-600"> setUser(prev => ({'{ ...prev, name: newName }'}))</code>
+                <code className="text-green-700 bg-green-50 px-2 py-1 rounded">✅ setUser(prev => ({'{ ...prev, name: newName }'}))</code>
               </div>
             </div>
           </div>
@@ -176,25 +176,25 @@ export default function UseStatePage() {
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4 text-gray-700">Edge Cases & Best Practices</h2>
             <div className="space-y-4 text-sm">
-              <div className="bg-blue-50 p-3 rounded">
-                <strong>=� Functional Updates:</strong> Use when new state depends on previous state
+              <div className="bg-blue-50 p-3 rounded border border-blue-200">
+                <strong className="text-blue-800">🔄 Functional Updates:</strong> <span className="text-blue-700">Use when new state depends on previous state</span>
                 <br />
-                <code>setCount(prev => prev + 1)</code> vs <code>setCount(count + 1)</code>
+                <code className="text-blue-900 bg-blue-100 px-2 py-1 rounded font-medium">setCount(prev => prev + 1)</code> <span className="text-blue-800">vs</span> <code className="text-gray-800 bg-gray-100 px-2 py-1 rounded font-medium">setCount(count + 1)</code>
               </div>
-              <div className="bg-green-50 p-3 rounded">
-                <strong> Immutable Updates:</strong> Always create new objects/arrays
+              <div className="bg-green-50 p-3 rounded border border-green-200">
+                <strong className="text-green-800">🔒 Immutable Updates:</strong> <span className="text-green-700">Always create new objects/arrays</span>
                 <br />
-                Arrays: <code>[...prev, newItem]</code> | Objects: <code>{'{ ...prev, newProp: value }'}</code>
+                <span className="text-green-800">Arrays:</span> <code className="text-green-900 bg-green-100 px-2 py-1 rounded font-medium">[...prev, newItem]</code> <span className="text-green-800">|</span> <span className="text-green-800">Objects:</span> <code className="text-green-900 bg-green-100 px-2 py-1 rounded font-medium">{'{ ...prev, newProp: value }'}</code>
               </div>
-              <div className="bg-red-50 p-3 rounded">
-                <strong>� Stale Closure:</strong> In event handlers, use functional updates
+              <div className="bg-red-50 p-3 rounded border border-red-200">
+                <strong className="text-red-800">🕒 Stale Closure:</strong> <span className="text-red-700">In event handlers, use functional updates</span>
                 <br />
-                <code>setTimeout(() => setCount(prev => prev + 1), 1000)</code>
+                <code className="text-red-900 bg-red-100 px-2 py-1 rounded font-medium">setTimeout(() => setCount(prev => prev + 1), 1000)</code>
               </div>
-              <div className="bg-yellow-50 p-3 rounded">
-                <strong>= Batch Updates:</strong> React batches state updates in event handlers
+              <div className="bg-yellow-50 p-3 rounded border border-yellow-200">
+                <strong className="text-yellow-800">📦 Batch Updates:</strong> <span className="text-yellow-700">React batches state updates in event handlers</span>
                 <br />
-                Multiple <code>setState</code> calls in one handler = one re-render
+                <span className="text-yellow-800">Multiple</span> <code className="text-yellow-900 bg-yellow-100 px-2 py-1 rounded font-medium">setState</code> <span className="text-yellow-800">calls in one handler = one re-render</span>
               </div>
             </div>
           </div>
