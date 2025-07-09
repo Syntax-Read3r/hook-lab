@@ -40,20 +40,20 @@ export default function UseStatePage() {
       <Navbar />
       <div className="p-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
+        <h1 className="mb-8 text-3xl font-bold text-center text-gray-800">
           useState Hook Demo
         </h1>
         
         {/* Hook Description */}
-        <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-          <h2 className="text-xl font-semibold mb-4 text-gray-700">What is useState?</h2>
-          <p className="text-gray-700 mb-4">
-            <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">useState</code> is a React Hook that lets you add state to functional components. 
+        <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
+          <h2 className="mb-4 text-xl font-semibold text-gray-700">What is useState?</h2>
+          <p className="mb-4 text-gray-700">
+            <code className="px-2 py-1 text-gray-800 bg-gray-100 rounded">useState</code> is a React Hook that lets you add state to functional components. 
             It returns an array with two elements: the current state value and a function to update it.
           </p>
-          <div className="bg-gray-50 p-4 rounded border border-gray-200">
-            <h3 className="text-lg font-medium mb-2 text-gray-800">Basic Syntax:</h3>
-            <pre className="bg-gray-800 text-green-400 p-3 rounded overflow-x-auto">
+          <div className="p-4 border border-gray-200 rounded bg-gray-50">
+            <h3 className="mb-2 text-lg font-medium text-gray-800">Basic Syntax:</h3>
+            <pre className="p-3 overflow-x-auto text-green-400 bg-gray-800 rounded">
               <code>{`const [state, setState] = useState(initialValue);
 
 // Examples:
@@ -67,12 +67,12 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
         
         <div className="space-y-8">
           {/* Counter Section */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="flex justify-between items-center mb-4">
+          <div className="p-6 bg-white rounded-lg shadow-md">
+            <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold text-gray-700">Counter Example</h2>
               <button
                 onClick={() => setShowCounterCode(!showCounterCode)}
-                className="px-3 py-1 bg-gray-600 text-white text-sm rounded hover:bg-gray-700 transition-colors"
+                className="px-3 py-1 text-sm text-white transition-colors bg-gray-600 rounded hover:bg-gray-700"
               >
                 {showCounterCode ? 'Hide Code' : 'View Code'}
               </button>
@@ -80,32 +80,32 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => setCount(prev => prev - 1)}
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+                className="px-4 py-2 text-white transition-colors bg-red-500 rounded hover:bg-red-600"
               >
                 -
               </button>
               <span className="text-2xl font-bold text-gray-800">{count}</span>
               <button
                 onClick={() => setCount(prev => prev + 1)}
-                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+                className="px-4 py-2 text-white transition-colors bg-green-500 rounded hover:bg-green-600"
               >
                 +
               </button>
               <button
                 onClick={() => setCount(0)}
-                className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors"
+                className="px-4 py-2 text-white transition-colors bg-gray-500 rounded hover:bg-gray-600"
               >
                 Reset
               </button>
             </div>
-            <p className="text-sm text-gray-700 mt-2">
-              ✅ Uses functional update: <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">setCount(prev =&gt; prev + 1)</code>
+            <p className="mt-2 text-sm text-gray-700">
+              ✅ Uses functional update: <code className="px-2 py-1 text-gray-800 bg-gray-100 rounded">setCount(prev =&gt; prev + 1)</code>
             </p>
             
             {showCounterCode && (
-              <div className="mt-4 bg-gray-50 p-4 rounded border border-gray-200">
-                <h3 className="text-sm font-medium text-gray-700 mb-2">Counter Example Code:</h3>
-                <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
+              <div className="p-4 mt-4 border border-gray-200 rounded bg-gray-50">
+                <h3 className="mb-2 text-sm font-medium text-gray-700">Counter Example Code:</h3>
+                <pre className="p-4 overflow-x-auto text-sm bg-gray-900 rounded">
                   <code>
                     <span className="text-green-400">{/* useState Hook: Initialize counter with 0 */}</span>{'\n'}
                     <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">count</span><span className="text-white">, </span><span className="text-yellow-300">setCount</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">(</span><span className="text-orange-400">0</span><span className="text-white">);</span>{'\n\n'}
@@ -146,12 +146,12 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
           </div>
 
           {/* Toggle Switch Section */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="flex justify-between items-center mb-4">
+          <div className="p-6 bg-white rounded-lg shadow-md">
+            <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold text-gray-700">Toggle Switch Example</h2>
               <button
                 onClick={() => setShowToggleCode(!showToggleCode)}
-                className="px-3 py-1 bg-gray-600 text-white text-sm rounded hover:bg-gray-700 transition-colors"
+                className="px-3 py-1 text-sm text-white transition-colors bg-gray-600 rounded hover:bg-gray-700"
               >
                 {showToggleCode ? 'Hide Code' : 'View Code'}
               </button>
@@ -171,14 +171,14 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                 Status: <strong>{isToggled ? 'Enabled' : 'Disabled'}</strong>
               </span>
             </div>
-            <p className="text-sm text-gray-700 mt-2">
-              ✅ Uses functional update: <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">setIsToggled(prev =&gt; !prev)</code>
+            <p className="mt-2 text-sm text-gray-700">
+              ✅ Uses functional update: <code className="px-2 py-1 text-gray-800 bg-gray-100 rounded">setIsToggled(prev =&gt; !prev)</code>
             </p>
             
             {showToggleCode && (
-              <div className="mt-4 bg-gray-50 p-4 rounded border border-gray-200">
-                <h3 className="text-sm font-medium text-gray-700 mb-2">Toggle Switch Example Code:</h3>
-                <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
+              <div className="p-4 mt-4 border border-gray-200 rounded bg-gray-50">
+                <h3 className="mb-2 text-sm font-medium text-gray-700">Toggle Switch Example Code:</h3>
+                <pre className="p-4 overflow-x-auto text-sm bg-gray-900 rounded">
                   <code>
                     <span className="text-green-400">{/* useState Hook: Initialize toggle state with false */}</span>{'\n'}
                     <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">isToggled</span><span className="text-white">, </span><span className="text-yellow-300">setIsToggled</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">(</span><span className="text-orange-400">false</span><span className="text-white">);</span>{'\n\n'}
@@ -210,12 +210,12 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
           </div>
 
           {/* Array State Section */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="flex justify-between items-center mb-4">
+          <div className="p-6 bg-white rounded-lg shadow-md">
+            <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold text-gray-700">Array State Updates</h2>
               <button
                 onClick={() => setShowArrayCode(!showArrayCode)}
-                className="px-3 py-1 bg-gray-600 text-white text-sm rounded hover:bg-gray-700 transition-colors"
+                className="px-3 py-1 text-sm text-white transition-colors bg-gray-600 rounded hover:bg-gray-700"
               >
                 {showArrayCode ? 'Hide Code' : 'View Code'}
               </button>
@@ -224,42 +224,42 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
               <div className="flex space-x-2">
                 <button
                   onClick={addItem}
-                  className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+                  className="px-4 py-2 text-white transition-colors bg-blue-500 rounded hover:bg-blue-600"
                 >
                   Add Item
                 </button>
                 <button
                   onClick={() => setItems([])}
-                  className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+                  className="px-4 py-2 text-white transition-colors bg-red-500 rounded hover:bg-red-600"
                 >
                   Clear All
                 </button>
               </div>
               <div className="space-y-2">
                 {items.map((item, index) => (
-                  <div key={index} className="flex items-center justify-between bg-gray-100 p-3 rounded border border-gray-200">
-                    <span className="text-gray-800 font-medium">{item}</span>
+                  <div key={index} className="flex items-center justify-between p-3 bg-gray-100 border border-gray-200 rounded">
+                    <span className="font-medium text-gray-800">{item}</span>
                     <button
                       onClick={() => removeItem(index)}
-                      className="px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600 transition-colors"
+                      className="px-3 py-1 text-sm text-white transition-colors bg-red-500 rounded hover:bg-red-600"
                     >
                       Remove
                     </button>
                   </div>
                 ))}
               </div>
-              <div className="text-sm text-gray-800 bg-yellow-50 p-3 rounded border border-yellow-200">
+              <div className="p-3 text-sm text-gray-800 border border-yellow-200 rounded bg-yellow-50">
                 <strong>⚠️ Common Gotcha:</strong> Don't mutate arrays directly!
                 <br />
-                <code className="text-red-700 bg-red-50 px-2 py-1 rounded">❌ items.push(newItem)</code>
+                <code className="px-2 py-1 text-red-700 rounded bg-red-50">❌ items.push(newItem)</code>
                 <br />
-                <code className="text-green-700 bg-green-50 px-2 py-1 rounded">✅ setItems(prev =&gt; [...prev, newItem])</code>
+                <code className="px-2 py-1 text-green-700 rounded bg-green-50">✅ setItems(prev =&gt; [...prev, newItem])</code>
               </div>
               
               {showArrayCode && (
-                <div className="mt-4 bg-gray-50 p-4 rounded border border-gray-200">
-                  <h3 className="text-sm font-medium text-gray-700 mb-2">Array State Updates Code:</h3>
-                  <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
+                <div className="p-4 mt-4 border border-gray-200 rounded bg-gray-50">
+                  <h3 className="mb-2 text-sm font-medium text-gray-700">Array State Updates Code:</h3>
+                  <pre className="p-4 overflow-x-auto text-sm bg-gray-900 rounded">
                     <code>
                       <span className="text-green-400">{/* useState Hook: Initialize array with default items */}</span>{'\n'}
                       <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">items</span><span className="text-white">, </span><span className="text-yellow-300">setItems</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">&lt;</span><span className="text-blue-300">string</span><span className="text-white">[]&gt;([</span><span className="text-yellow-200">'Item 1'</span><span className="text-white">, </span><span className="text-yellow-200">'Item 2'</span><span className="text-white">]);</span>{'\n\n'}
@@ -306,18 +306,18 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
           </div>
 
           {/* Object State Section */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="flex justify-between items-center mb-4">
+          <div className="p-6 bg-white rounded-lg shadow-md">
+            <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold text-gray-700">Object State Updates</h2>
               <button
                 onClick={() => setShowObjectCode(!showObjectCode)}
-                className="px-3 py-1 bg-gray-600 text-white text-sm rounded hover:bg-gray-700 transition-colors"
+                className="px-3 py-1 text-sm text-white transition-colors bg-gray-600 rounded hover:bg-gray-700"
               >
                 {showObjectCode ? 'Hide Code' : 'View Code'}
               </button>
             </div>
             <div className="space-y-4">
-              <div className="bg-gray-100 p-4 rounded border border-gray-200">
+              <div className="p-4 bg-gray-100 border border-gray-200 rounded">
                 <p className="text-gray-800"><strong className="text-gray-900">Name:</strong> {user.name}</p>
                 <p className="text-gray-800"><strong className="text-gray-900">Age:</strong> {user.age}</p>
               </div>
@@ -331,33 +331,33 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                       e.currentTarget.value = '';
                     }
                   }}
-                  className="px-3 py-2 border-2 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-800 placeholder-gray-500"
+                  className="px-3 py-2 text-gray-800 placeholder-gray-500 border-2 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
                 <button
                   onClick={updateUserAge}
-                  className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition-colors"
+                  className="px-4 py-2 text-white transition-colors bg-purple-500 rounded hover:bg-purple-600"
                 >
                   Increase Age
                 </button>
                 <button
                   onClick={() => setUser({ name: 'John', age: 25 })}
-                  className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors"
+                  className="px-4 py-2 text-white transition-colors bg-gray-500 rounded hover:bg-gray-600"
                 >
                   Reset User
                 </button>
               </div>
-              <div className="text-sm text-gray-800 bg-yellow-50 p-3 rounded border border-yellow-200">
+              <div className="p-3 text-sm text-gray-800 border border-yellow-200 rounded bg-yellow-50">
                 <strong>⚠️ Common Gotcha:</strong> Don't mutate objects directly!
                 <br />
-                <code className="text-red-700 bg-red-50 px-2 py-1 rounded">❌ user.name = newName</code>
+                <code className="px-2 py-1 text-red-700 rounded bg-red-50">❌ user.name = newName</code>
                 <br />
-                <code className="text-green-700 bg-green-50 px-2 py-1 rounded">✅ setUser(prev =&gt; ({'{ ...prev, name: newName }'}))</code>
+                <code className="px-2 py-1 text-green-700 rounded bg-green-50">✅ setUser(prev =&gt; ({'{ ...prev, name: newName }'}))</code>
               </div>
               
               {showObjectCode && (
-                <div className="mt-4 bg-gray-50 p-4 rounded border border-gray-200">
-                  <h3 className="text-sm font-medium text-gray-700 mb-2">Object State Updates Code:</h3>
-                  <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
+                <div className="p-4 mt-4 border border-gray-200 rounded bg-gray-50">
+                  <h3 className="mb-2 text-sm font-medium text-gray-700">Object State Updates Code:</h3>
+                  <pre className="p-4 overflow-x-auto text-sm bg-gray-900 rounded">
                     <code>
                       <span className="text-green-400">{/* useState Hook: Initialize object with default user data */}</span>{'\n'}
                       <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">user</span><span className="text-white">, </span><span className="text-yellow-300">setUser</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">({'{ name: '}</span><span className="text-yellow-200">'John'</span><span className="text-white">, age: </span><span className="text-orange-400">25</span> <span className="text-white">{'}'});</span>{'\n\n'}
@@ -374,7 +374,7 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                       <span className="text-white">  </span><span className="text-yellow-300">setUser</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=&gt;</span> <span className="text-white">({'{ ...prev, age: prev.age + 1 }'});</span>{'\n'}
                       <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
                       
-                      <span className="text-green-400">{/* JSX: Object state management UI */}</span>{'\n'}
+                      <span className="text-green-400">{/* JSX: Object state management UIs */}</span>{'\n'}
                       <span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"space-y-4"</span><span className="text-red-400">&gt;</span>{'\n'}
                       <span className="text-white">  </span><span className="text-green-400">{'// Display current user data'}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"bg-gray-100 p-4 rounded border border-gray-200"</span><span className="text-red-400">&gt;</span>{'\n'}
@@ -415,65 +415,65 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
           </div>
 
           {/* Edge Cases Section */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4 text-gray-700">Edge Cases & Best Practices</h2>
+          <div className="p-6 bg-white rounded-lg shadow-md">
+            <h2 className="mb-4 text-xl font-semibold text-gray-700">Edge Cases & Best Practices</h2>
             <div className="space-y-6 text-sm">
-              <div className="bg-blue-50 p-4 rounded border border-blue-200">
+              <div className="p-4 border border-blue-200 rounded bg-blue-50">
                 <strong className="text-blue-800">🔄 Functional Updates:</strong> <span className="text-blue-700">Use when new state depends on previous state</span>
                 <br />
                 <div className="mt-2 mb-2">
-                  <code className="text-blue-900 bg-blue-100 px-2 py-1 rounded font-medium">setCount(prev =&gt; prev + 1)</code> <span className="text-blue-800">vs</span> <code className="text-gray-800 bg-gray-100 px-2 py-1 rounded font-medium">setCount(count + 1)</code>
+                  <code className="px-2 py-1 font-medium text-blue-900 bg-blue-100 rounded">setCount(prev =&gt; prev + 1)</code> <span className="text-blue-800">vs</span> <code className="px-2 py-1 font-medium text-gray-800 bg-gray-100 rounded">setCount(count + 1)</code>
                 </div>
-                <p className="text-blue-700 text-xs mt-2">
+                <p className="mt-2 text-xs text-blue-700">
                   <strong>Why functional updates?</strong> They ensure you're working with the latest state value, especially important in async operations, 
                   event handlers, and when multiple updates happen quickly. The functional approach prevents stale closures.
                 </p>
               </div>
               
-              <div className="bg-green-50 p-4 rounded border border-green-200">
+              <div className="p-4 border border-green-200 rounded bg-green-50">
                 <strong className="text-green-800">🔒 Immutable Updates:</strong> <span className="text-green-700">Always create new objects/arrays</span>
                 <br />
                 <div className="mt-2 mb-2">
-                  <span className="text-green-800">Arrays:</span> <code className="text-green-900 bg-green-100 px-2 py-1 rounded font-medium">[...prev, newItem]</code> <span className="text-green-800">|</span> <span className="text-green-800">Objects:</span> <code className="text-green-900 bg-green-100 px-2 py-1 rounded font-medium">{'{ ...prev, newProp: value }'}</code>
+                  <span className="text-green-800">Arrays:</span> <code className="px-2 py-1 font-medium text-green-900 bg-green-100 rounded">[...prev, newItem]</code> <span className="text-green-800">|</span> <span className="text-green-800">Objects:</span> <code className="px-2 py-1 font-medium text-green-900 bg-green-100 rounded">{'{ ...prev, newProp: value }'}</code>
                 </div>
-                <p className="text-green-700 text-xs mt-2">
+                <p className="mt-2 text-xs text-green-700">
                   <strong>Why immutability?</strong> React uses Object.is() comparison to detect state changes. If you mutate the original object/array, 
                   React won't detect the change and won't re-render. Always create new references for updates.
                 </p>
               </div>
               
-              <div className="bg-red-50 p-4 rounded border border-red-200">
+              <div className="p-4 border border-red-200 rounded bg-red-50">
                 <strong className="text-red-800">🕒 Stale Closure:</strong> <span className="text-red-700">A common pitfall in async operations</span>
                 <br />
                 <div className="mt-2 mb-2">
-                  <code className="text-red-900 bg-red-100 px-2 py-1 rounded font-medium">setTimeout(() =&gt; setCount(prev =&gt; prev + 1), 1000)</code>
+                  <code className="px-2 py-1 font-medium text-red-900 bg-red-100 rounded">setTimeout(() =&gt; setCount(prev =&gt; prev + 1), 1000)</code>
                 </div>
-                <p className="text-red-700 text-xs mt-2">
-                  <strong>The problem:</strong> In closures (like setTimeout, useEffect), the <code className="bg-red-100 px-1 rounded">count</code> variable 
+                <p className="mt-2 text-xs text-red-700">
+                  <strong>The problem:</strong> In closures (like setTimeout, useEffect), the <code className="px-1 bg-red-100 rounded">count</code> variable 
                   captures the value from when the closure was created, not the current value. Using functional updates 
-                  <code className="bg-red-100 px-1 rounded">prev =&gt; prev + 1</code> ensures you get the latest state.
+                  <code className="px-1 bg-red-100 rounded">prev =&gt; prev + 1</code> ensures you get the latest state.
                 </p>
               </div>
               
-              <div className="bg-yellow-50 p-4 rounded border border-yellow-200">
+              <div className="p-4 border border-yellow-200 rounded bg-yellow-50">
                 <strong className="text-yellow-800">📦 Batch Updates:</strong> <span className="text-yellow-700">React optimizes performance by batching updates</span>
                 <br />
                 <div className="mt-2 mb-2">
-                  <span className="text-yellow-800">Multiple</span> <code className="text-yellow-900 bg-yellow-100 px-2 py-1 rounded font-medium">setState</code> <span className="text-yellow-800">calls in one handler = one re-render</span>
+                  <span className="text-yellow-800">Multiple</span> <code className="px-2 py-1 font-medium text-yellow-900 bg-yellow-100 rounded">setState</code> <span className="text-yellow-800">calls in one handler = one re-render</span>
                 </div>
-                <p className="text-yellow-700 text-xs mt-2">
+                <p className="mt-2 text-xs text-yellow-700">
                   <strong>How it works:</strong> React automatically batches multiple state updates in event handlers into a single re-render for better performance. 
                   In React 18+, this batching also happens in promises, timeouts, and other async operations (Automatic Batching).
                 </p>
               </div>
               
-              <div className="bg-purple-50 p-4 rounded border border-purple-200">
+              <div className="p-4 border border-purple-200 rounded bg-purple-50">
                 <strong className="text-purple-800">⚡ State Updates are Asynchronous:</strong> <span className="text-purple-700">setState doesn't immediately update the state</span>
                 <br />
                 <div className="mt-2 mb-2">
-                  <code className="text-purple-900 bg-purple-100 px-2 py-1 rounded font-medium">setCount(count + 1); console.log(count); // Still old value!</code>
+                  <code className="px-2 py-1 font-medium text-purple-900 bg-purple-100 rounded">setCount(count + 1); console.log(count); // Still old value!</code>
                 </div>
-                <p className="text-purple-700 text-xs mt-2">
+                <p className="mt-2 text-xs text-purple-700">
                   <strong>Remember:</strong> State updates are scheduled and happen after the current execution. If you need to perform actions 
                   after state updates, use useEffect or access the new state in the next render cycle.
                 </p>
