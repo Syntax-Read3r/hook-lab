@@ -21,7 +21,7 @@ export default function Home() {
       title: 'useReducer',
       description: 'Counter with reducer logic and form handling',
       path: '/hooks/use-reducer',
-      status: 'pending'
+      status: 'completed'
     },
     {
       id: 4,
