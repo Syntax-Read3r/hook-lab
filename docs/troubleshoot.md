@@ -108,6 +108,61 @@ catch (_error) {
 
 ---
 
+### 3. GitHub Pages Deployment Issues
+
+#### **Issue: README.md showing instead of main page**
+
+**Problem:** GitHub Pages displays the repository's README.md instead of the built Next.js application.
+
+**Root cause:** Missing `.nojekyll` file causes GitHub Pages to use Jekyll processing, which interferes with Next.js routing.
+
+**Symptoms:**
+- Deployment succeeds but shows README.md content
+- Site URL shows repository documentation instead of app
+- Console may show 404 errors for assets
+- This issue appears intermittently after deployments
+
+**❌ Common mistakes:**
+- Forgetting to create `.nojekyll` file
+- Placing `.nojekyll` in wrong directory
+- `.nojekyll` file getting deleted during build process
+
+**✅ Solution:**
+```bash
+# Create .nojekyll file in public directory
+touch public/.nojekyll
+
+# Verify it exists
+ls -la public/.nojekyll
+```
+
+**Why this works:**
+- `.nojekyll` tells GitHub Pages to skip Jekyll processing
+- Next.js static export requires raw file serving
+- File must be in `public/` directory to be included in build output
+- GitHub Pages looks for this file in the root of deployed content
+
+**Prevention:**
+1. Always include `.nojekyll` in `public/` directory
+2. Add to version control: `git add public/.nojekyll`
+3. Verify in build output: check `out/.nojekyll` exists after build
+4. Include in deployment checklist
+
+**Alternative solution (if above doesn't work):**
+```bash
+# Create .nojekyll in root directory as backup
+touch .nojekyll
+```
+
+**Testing the fix:**
+1. Create the `.nojekyll` file
+2. Commit and push changes
+3. Wait for GitHub Actions to complete
+4. Check that site shows React app, not README.md
+5. Verify in browser developer tools that assets load correctly
+
+---
+
 ## 🔤 JSX Encoding Issues
 
 ### 7. Arrow Function Encoding in JSX
@@ -421,6 +476,12 @@ const [data, setData] = useState<{
 - [ ] Run `npx eslint src/ --ext .ts,.tsx --fix`
 - [ ] Test with `npm run build`
 
+**Deployment Issues:**
+- [ ] Verify `.nojekyll` exists in `public/` directory
+- [ ] Check GitHub Pages source is set to "GitHub Actions"
+- [ ] Confirm build output includes `.nojekyll` file
+- [ ] Test deployed site shows React app, not README.md
+
 **Testing Commands:**
 ```bash
 # TypeScript check
@@ -434,6 +495,10 @@ npm run build
 
 # Development server
 npm run dev
+
+# Deployment checks
+ls -la public/.nojekyll          # Verify .nojekyll exists
+npm run build && ls -la out/     # Check build output
 ```
 
 ---
