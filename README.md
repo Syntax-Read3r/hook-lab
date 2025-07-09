@@ -160,7 +160,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-Created by [Your Name] - feel free to contact me!
+Created by **Munya** - feel free to contact me!
+
+📧 Email: [syntaxread3r@gmail.com](mailto:syntaxread3r@gmail.com)
 
 ---
 
