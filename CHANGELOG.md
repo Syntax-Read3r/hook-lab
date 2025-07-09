@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## [2024-01-09] - GitHub Pages Deployment & Documentation
+
+### Added
+- **GitHub Pages Deployment**: Modern GitHub Actions workflow for automatic deployment
+- **Documentation**: Complete README.md with project overview, features, and getting started guide
+- **How-to Guide**: Step-by-step tutorial for recreating similar projects
+
+### Changed
+- **Next.js Configuration**: Updated to use modern `output: "export"` instead of deprecated `next export`
+- **Package Scripts**: Simplified build process for static export
+- **Project Structure**: Reorganized documentation with dedicated docs directory
+
+### Fixed
+- **JSX Comment Syntax**: Fixed all ESLint errors in useState page by converting JavaScript comments to JSX format
+- **Build Process**: Resolved compilation errors that were preventing GitHub Pages deployment
+- **Static Export**: Ensured proper static site generation with GitHub Pages compatibility
+
+### Technical Details
+- Replaced deprecated `next export` command with Next.js 15 static export configuration
+- Updated GitHub Actions workflow to use latest actions (v4) with proper permissions
+- Fixed 17 JSX comment syntax errors across useState demo page
+- Configured proper basePath for GitHub Pages deployment
+
+---
+
 ## useState Hook Implementation
 
 ### Overview
