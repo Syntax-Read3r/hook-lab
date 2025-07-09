@@ -326,11 +326,9 @@ Create different configs for development and production:
 // next.config.ts
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === 'production';
-
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: isProd ? "/your-repo-name" : "",
+  basePath: process.env.NODE_ENV === "production" ? "/your-repo-name" : "",
   trailingSlash: true,
   images: {
     unoptimized: true,
@@ -339,6 +337,8 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 ```
+
+**Development Tip**: This configuration automatically handles the basePath issue that can cause 404 errors in local development. The basePath is only applied in production for GitHub Pages deployment, while development runs without it for seamless local testing at `http://localhost:3000`.
 
 ## 🔄 Step 8: Development Workflow
 
@@ -464,16 +464,20 @@ export default function SEO({ title, description, image, url }: SEOProps) {
    - Check that basePath in next.config.ts matches your repo name
    - Ensure GitHub Pages is set to "GitHub Actions" source
 
-2. **Build Failures**:
+2. **404 in Local Development**:
+   - Use environment-specific basePath configuration: `basePath: process.env.NODE_ENV === "production" ? "/your-repo-name" : ""`
+   - This allows local development at `http://localhost:3000` while still working on GitHub Pages
+
+3. **Build Failures**:
    - Check the Actions tab for error details
    - Ensure all dependencies are in package.json
    - Verify Next.js version compatibility
 
-3. **Images Not Loading**:
+4. **Images Not Loading**:
    - Make sure images are in the `public` folder
    - Use `unoptimized: true` in next.config.ts
 
-4. **CSS Not Loading**:
+5. **CSS Not Loading**:
    - Check that Tailwind CSS is properly configured
    - Verify globals.css imports
 

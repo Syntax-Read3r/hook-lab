@@ -9,15 +9,17 @@ Each hook below should have its **own page/component**, with:
 
 ---
 
-### **1. `useState`**
+### **1. `useState`** ✅
 
 * Task: Create a counter and a toggle switch.
 * Bonus: Show array and object state updates properly.
+* **Status**: Completed - Interactive counter, toggle, and array/object state examples
 
-### **2. `useEffect`**
+### **2. `useEffect`** ✅
 
 * Task: Fetch API data on mount and show a cleanup function.
 * Bonus: Use dependency array examples.
+* **Status**: Completed - API fetching, cleanup, and dependency array demonstrations
 
 ### **3. `useReducer`**
 
@@ -68,6 +70,19 @@ Each hook below should have its **own page/component**, with:
 
 * Task: Show how `useId` prevents ID collisions in form fields.
 * Bonus: Multiple components on same page using the hook.
+
+---
+
+## 🔧 Development Notes
+
+### Recent Updates
+- **Configuration Fix**: Updated `next.config.ts` to conditionally apply `basePath` only in production, resolving local development 404 errors
+- **Progress**: useState and useEffect hooks are completed with interactive demonstrations
+- **Structure**: All hook pages follow consistent pattern with live demos, code explanations, and best practices
+
+### Next Steps
+- Continue with remaining React hooks (useReducer, useRef, useContext, etc.)
+- Begin Phase 2 Next.js features once all hooks are complete
 
 ---
 

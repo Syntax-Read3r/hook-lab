@@ -61,6 +61,8 @@ Hook Lab is an interactive educational platform designed to help developers lear
 
 4. **Open your browser**
    Navigate to `http://localhost:3000`
+   
+   > **Note**: If you encounter a 404 error, the app is configured with a `basePath` for GitHub Pages deployment. The configuration automatically disables `basePath` in development, but if you're still seeing issues, ensure you're accessing the correct localhost URL.
 
 ## 🏗️ Project Structure
 
