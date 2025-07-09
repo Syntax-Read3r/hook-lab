@@ -13,7 +13,7 @@ Hook Lab is an interactive educational platform designed to help developers lear
 - **Interactive Examples**: Live, working demonstrations you can interact with
 - **Code Snippets**: Syntax-highlighted code examples with explanations
 - **Best Practices**: Common patterns and anti-patterns
-- **Edge Cases**: Important gotchas and how to handle them
+- **Edge Cases**: Important gotchas and how to handle them 
 
 ## 🎯 Featured Hooks
 
