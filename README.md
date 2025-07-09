@@ -4,7 +4,7 @@ A comprehensive React Hooks learning platform built with Next.js 15, featuring i
 
 ## 🌟 Live Demo
 
-Visit the live demo: [Hook Lab](https://your-username.github.io/hook-lab/)
+Visit the live demo: [Hook Lab](https://syntax-read3r.github.io/hook-lab/)
 
 ## 📚 What is Hook Lab?
 
@@ -45,7 +45,7 @@ Hook Lab is an interactive educational platform designed to help developers lear
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/hook-lab.git
+   git clone https://github.com/syntax-read3r/hook-lab.git
    cd hook-lab
    ```
 
@@ -149,7 +149,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is open source and available under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgments
 
