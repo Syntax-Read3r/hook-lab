@@ -48,7 +48,7 @@ export default function UseStatePage() {
         <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
           <h2 className="mb-4 text-xl font-semibold text-gray-700">What is useState?</h2>
           <p className="mb-4 text-gray-700">
-            <code className="px-2 py-1 text-gray-800 bg-gray-100 rounded">useState</code> is a React Hook that lets you add state to functional components. 
+            <code className="px-2 py-1 text-white bg-gray-800 rounded">useState</code> is a React Hook that lets you add state to functional components. 
             It returns an array with two elements: the current state value and a function to update it.
           </p>
           <div className="p-4 border border-gray-200 rounded bg-gray-50">
@@ -99,7 +99,7 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
               </button>
             </div>
             <p className="mt-2 text-sm text-gray-700">
-              ✅ Uses functional update: <code className="px-2 py-1 text-gray-800 bg-gray-100 rounded">setCount(prev =&gt; prev + 1)</code>
+              ✅ Uses functional update: <code className="px-2 py-1 text-white bg-gray-800 rounded">setCount(prev =&gt; prev + 1)</code>
             </p>
             
             {showCounterCode && (
@@ -172,7 +172,7 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
               </span>
             </div>
             <p className="mt-2 text-sm text-gray-700">
-              ✅ Uses functional update: <code className="px-2 py-1 text-gray-800 bg-gray-100 rounded">setIsToggled(prev =&gt; !prev)</code>
+              ✅ Uses functional update: <code className="px-2 py-1 text-white bg-gray-800 rounded">setIsToggled(prev =&gt; !prev)</code>
             </p>
             
             {showToggleCode && (
@@ -422,7 +422,7 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                 <strong className="text-blue-800">🔄 Functional Updates:</strong> <span className="text-blue-700">Use when new state depends on previous state</span>
                 <br />
                 <div className="mt-2 mb-2">
-                  <code className="px-2 py-1 font-medium text-blue-900 bg-blue-100 rounded">setCount(prev =&gt; prev + 1)</code> <span className="text-blue-800">vs</span> <code className="px-2 py-1 font-medium text-gray-800 bg-gray-100 rounded">setCount(count + 1)</code>
+                  <code className="px-2 py-1 font-medium text-white bg-green-700 rounded">setCount(prev =&gt; prev + 1)</code> <span className="text-blue-800">vs</span> <code className="px-2 py-1 font-medium text-white bg-red-700 rounded">setCount(count + 1)</code>
                 </div>
                 <p className="mt-2 text-xs text-blue-700">
                   <strong>Why functional updates?</strong> They ensure you're working with the latest state value, especially important in async operations, 

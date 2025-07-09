@@ -40,7 +40,11 @@ export default function UseEffectPage() {
   const [showStorageCode, setShowStorageCode] = useState(false);
   
   // Auto-fetch data states
-  const [autoFetchedData, setAutoFetchedData] = useState<any>(null);
+  const [autoFetchedData, setAutoFetchedData] = useState<{
+    message: string;
+    timestamp: string;
+    id: string;
+  } | null>(null);
   const [autoFetchLoading, setAutoFetchLoading] = useState(true);
   const [autoFetchError, setAutoFetchError] = useState<string | null>(null);
   
@@ -131,7 +135,7 @@ export default function UseEffectPage() {
         
         setAutoFetchedData(data);
       } catch (error) {
-        setAutoFetchError('Failed to fetch data');
+        setAutoFetchError(error instanceof Error ? error.message : 'Failed to fetch data');
       } finally {
         setAutoFetchLoading(false);
       }
