@@ -107,10 +107,10 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                 <h3 className="text-sm font-medium text-gray-700 mb-2">Counter Example Code:</h3>
                 <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
                   <code>
-                    <span className="text-green-400">// useState Hook: Initialize counter with 0</span>{'\n'}
+                    <span className="text-green-400">{/* useState Hook: Initialize counter with 0 */}</span>{'\n'}
                     <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">count</span><span className="text-white">, </span><span className="text-yellow-300">setCount</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">(</span><span className="text-orange-400">0</span><span className="text-white">);</span>{'\n\n'}
                     
-                    <span className="text-green-400">// JSX: Counter UI with three buttons</span>{'\n'}
+                    <span className="text-green-400">{/* JSX: Counter UI with three buttons */}</span>{'\n'}
                     <span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"flex items-center space-x-4"</span><span className="text-red-400">&gt;</span>{'\n'}
                     <span className="text-white">  </span><span className="text-green-400">{'// Decrement button - uses functional update'}</span>{'\n'}
                     <span className="text-white">  </span><span className="text-red-400">&lt;button</span>{'\n'}
@@ -180,10 +180,10 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                 <h3 className="text-sm font-medium text-gray-700 mb-2">Toggle Switch Example Code:</h3>
                 <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
                   <code>
-                    <span className="text-green-400">// useState Hook: Initialize toggle state with false</span>{'\n'}
+                    <span className="text-green-400">{/* useState Hook: Initialize toggle state with false */}</span>{'\n'}
                     <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">isToggled</span><span className="text-white">, </span><span className="text-yellow-300">setIsToggled</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">(</span><span className="text-orange-400">false</span><span className="text-white">);</span>{'\n\n'}
                     
-                    <span className="text-green-400">// JSX: Toggle switch with conditional styling</span>{'\n'}
+                    <span className="text-green-400">{/* JSX: Toggle switch with conditional styling */}</span>{'\n'}
                     <span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"flex items-center space-x-4"</span><span className="text-red-400">&gt;</span>{'\n'}
                     <span className="text-white">  </span><span className="text-green-400">{'// Toggle button - uses functional update to flip boolean'}</span>{'\n'}
                     <span className="text-white">  </span><span className="text-red-400">&lt;button</span>{'\n'}
@@ -261,24 +261,24 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                   <h3 className="text-sm font-medium text-gray-700 mb-2">Array State Updates Code:</h3>
                   <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
                     <code>
-                      <span className="text-green-400">// useState Hook: Initialize array with default items</span>{'\n'}
+                      <span className="text-green-400">{/* useState Hook: Initialize array with default items */}</span>{'\n'}
                       <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">items</span><span className="text-white">, </span><span className="text-yellow-300">setItems</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">&lt;</span><span className="text-blue-300">string</span><span className="text-white">[]&gt;([</span><span className="text-yellow-200">'Item 1'</span><span className="text-white">, </span><span className="text-yellow-200">'Item 2'</span><span className="text-white">]);</span>{'\n\n'}
                       
-                      <span className="text-green-400">// Helper function: Add new item to array (immutable)</span>{'\n'}
+                      <span className="text-green-400">{/* Helper function: Add new item to array (immutable) */}</span>{'\n'}
                       <span className="text-blue-400">const</span> <span className="text-yellow-300">addItem</span> <span className="text-white">=</span> <span className="text-white">() =&gt; </span><span className="text-yellow-200">{'{'}</span>{'\n'}
-                      <span className="text-white">  </span><span className="text-green-400">// Create new item with incremental number</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-green-400">{/* Create new item with incremental number */}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-blue-400">const</span> <span className="text-yellow-300">newItem</span> <span className="text-white">=</span> <span className="text-yellow-200">`Item ${'{items.length + 1}'}`</span><span className="text-white">;</span>{'\n'}
-                      <span className="text-white">  </span><span className="text-green-400">// Use spread operator to create new array</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-green-400">{/* Use spread operator to create new array */}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-yellow-300">setItems</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=&gt;</span> <span className="text-white">[...</span><span className="text-yellow-300">prev</span><span className="text-white">, </span><span className="text-yellow-300">newItem</span><span className="text-white">]);</span>{'\n'}
                       <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
                       
-                      <span className="text-green-400">// Helper function: Remove item by index (immutable)</span>{'\n'}
+                      <span className="text-green-400">{/* Helper function: Remove item by index (immutable) */}</span>{'\n'}
                       <span className="text-blue-400">const</span> <span className="text-yellow-300">removeItem</span> <span className="text-white">=</span> <span className="text-white">(</span><span className="text-yellow-300">index</span><span className="text-white">:</span> <span className="text-blue-300">number</span><span className="text-white">) =&gt; </span><span className="text-yellow-200">{'{'}</span>{'\n'}
-                      <span className="text-white">  </span><span className="text-green-400">// Filter out item at specified index</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-green-400">{/* Filter out item at specified index */}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-yellow-300">setItems</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=&gt;</span> <span className="text-yellow-300">prev</span><span className="text-white">.</span><span className="text-purple-400">filter</span><span className="text-white">((</span><span className="text-yellow-300">_</span><span className="text-white">, </span><span className="text-yellow-300">i</span><span className="text-white">) =&gt; </span><span className="text-yellow-300">i</span> <span className="text-white">!==</span> <span className="text-yellow-300">index</span><span className="text-white">));</span>{'\n'}
                       <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
                       
-                      <span className="text-green-400">// JSX: Array management UI</span>{'\n'}
+                      <span className="text-green-400">{/* JSX: Array management UI */}</span>{'\n'}
                       <span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"space-y-4"</span><span className="text-red-400">&gt;</span>{'\n'}
                       <span className="text-white">  </span><span className="text-green-400">{'// Action buttons'}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"flex space-x-2"</span><span className="text-red-400">&gt;</span>{'\n'}
@@ -359,22 +359,22 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                   <h3 className="text-sm font-medium text-gray-700 mb-2">Object State Updates Code:</h3>
                   <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
                     <code>
-                      <span className="text-green-400">// useState Hook: Initialize object with default user data</span>{'\n'}
+                      <span className="text-green-400">{/* useState Hook: Initialize object with default user data */}</span>{'\n'}
                       <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">user</span><span className="text-white">, </span><span className="text-yellow-300">setUser</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">({'{ name: '}</span><span className="text-yellow-200">'John'</span><span className="text-white">, age: </span><span className="text-orange-400">25</span> <span className="text-white">{'}'});</span>{'\n\n'}
                       
-                      <span className="text-green-400">// Helper function: Update user name (immutable)</span>{'\n'}
+                      <span className="text-green-400">{/* Helper function: Update user name (immutable) */}</span>{'\n'}
                       <span className="text-blue-400">const</span> <span className="text-yellow-300">updateUserName</span> <span className="text-white">=</span> <span className="text-white">(</span><span className="text-yellow-300">newName</span><span className="text-white">:</span> <span className="text-blue-300">string</span><span className="text-white">) =&gt; </span><span className="text-yellow-200">{'{'}</span>{'\n'}
-                      <span className="text-white">  </span><span className="text-green-400">// Use spread operator to create new object</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-green-400">{/* Use spread operator to create new object */}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-yellow-300">setUser</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=&gt;</span> <span className="text-white">({'{ ...prev, name: newName }'});</span>{'\n'}
                       <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
                       
-                      <span className="text-green-400">// Helper function: Increment user age (immutable)</span>{'\n'}
+                      <span className="text-green-400">{/* Helper function: Increment user age (immutable) */}</span>{'\n'}
                       <span className="text-blue-400">const</span> <span className="text-yellow-300">updateUserAge</span> <span className="text-white">=</span> <span className="text-white">() =&gt; </span><span className="text-yellow-200">{'{'}</span>{'\n'}
-                      <span className="text-white">  </span><span className="text-green-400">// Preserve existing properties, update only age</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-green-400">{/* Preserve existing properties, update only age */}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-yellow-300">setUser</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=&gt;</span> <span className="text-white">({'{ ...prev, age: prev.age + 1 }'});</span>{'\n'}
                       <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
                       
-                      <span className="text-green-400">// JSX: Object state management UI</span>{'\n'}
+                      <span className="text-green-400">{/* JSX: Object state management UI */}</span>{'\n'}
                       <span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"space-y-4"</span><span className="text-red-400">&gt;</span>{'\n'}
                       <span className="text-white">  </span><span className="text-green-400">{'// Display current user data'}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"bg-gray-100 p-4 rounded border border-gray-200"</span><span className="text-red-400">&gt;</span>{'\n'}
