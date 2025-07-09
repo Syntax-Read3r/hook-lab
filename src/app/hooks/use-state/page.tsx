@@ -99,7 +99,7 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
               </button>
             </div>
             <p className="text-sm text-gray-700 mt-2">
-              ✅ Uses functional update: <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">setCount(prev => prev + 1)</code>
+              ✅ Uses functional update: <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">setCount(prev =&gt; prev + 1)</code>
             </p>
             
             {showCounterCode && (
@@ -172,7 +172,7 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
               </span>
             </div>
             <p className="text-sm text-gray-700 mt-2">
-              ✅ Uses functional update: <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">setIsToggled(prev => !prev)</code>
+              ✅ Uses functional update: <code className="bg-gray-100 px-2 py-1 rounded text-gray-800">setIsToggled(prev =&gt; !prev)</code>
             </p>
             
             {showToggleCode && (
@@ -253,7 +253,7 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                 <br />
                 <code className="text-red-700 bg-red-50 px-2 py-1 rounded">❌ items.push(newItem)</code>
                 <br />
-                <code className="text-green-700 bg-green-50 px-2 py-1 rounded">✅ setItems(prev => [...prev, newItem])</code>
+                <code className="text-green-700 bg-green-50 px-2 py-1 rounded">✅ setItems(prev =&gt; [...prev, newItem])</code>
               </div>
               
               {showArrayCode && (
@@ -265,17 +265,17 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                       <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">items</span><span className="text-white">, </span><span className="text-yellow-300">setItems</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">&lt;</span><span className="text-blue-300">string</span><span className="text-white">[]&gt;([</span><span className="text-yellow-200">'Item 1'</span><span className="text-white">, </span><span className="text-yellow-200">'Item 2'</span><span className="text-white">]);</span>{'\n\n'}
                       
                       <span className="text-green-400">// Helper function: Add new item to array (immutable)</span>{'\n'}
-                      <span className="text-blue-400">const</span> <span className="text-yellow-300">addItem</span> <span className="text-white">=</span> <span className="text-white">() => </span><span className="text-yellow-200">{'{'}</span>{'\n'}
+                      <span className="text-blue-400">const</span> <span className="text-yellow-300">addItem</span> <span className="text-white">=</span> <span className="text-white">() =&gt; </span><span className="text-yellow-200">{'{'}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-green-400">// Create new item with incremental number</span>{'\n'}
                       <span className="text-white">  </span><span className="text-blue-400">const</span> <span className="text-yellow-300">newItem</span> <span className="text-white">=</span> <span className="text-yellow-200">`Item ${'{items.length + 1}'}`</span><span className="text-white">;</span>{'\n'}
                       <span className="text-white">  </span><span className="text-green-400">// Use spread operator to create new array</span>{'\n'}
-                      <span className="text-white">  </span><span className="text-yellow-300">setItems</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=></span> <span className="text-white">[...</span><span className="text-yellow-300">prev</span><span className="text-white">, </span><span className="text-yellow-300">newItem</span><span className="text-white">]);</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-yellow-300">setItems</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=&gt;</span> <span className="text-white">[...</span><span className="text-yellow-300">prev</span><span className="text-white">, </span><span className="text-yellow-300">newItem</span><span className="text-white">]);</span>{'\n'}
                       <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
                       
                       <span className="text-green-400">// Helper function: Remove item by index (immutable)</span>{'\n'}
-                      <span className="text-blue-400">const</span> <span className="text-yellow-300">removeItem</span> <span className="text-white">=</span> <span className="text-white">(</span><span className="text-yellow-300">index</span><span className="text-white">:</span> <span className="text-blue-300">number</span><span className="text-white">) => </span><span className="text-yellow-200">{'{'}</span>{'\n'}
+                      <span className="text-blue-400">const</span> <span className="text-yellow-300">removeItem</span> <span className="text-white">=</span> <span className="text-white">(</span><span className="text-yellow-300">index</span><span className="text-white">:</span> <span className="text-blue-300">number</span><span className="text-white">) =&gt; </span><span className="text-yellow-200">{'{'}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-green-400">// Filter out item at specified index</span>{'\n'}
-                      <span className="text-white">  </span><span className="text-yellow-300">setItems</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=></span> <span className="text-yellow-300">prev</span><span className="text-white">.</span><span className="text-purple-400">filter</span><span className="text-white">((</span><span className="text-yellow-300">_</span><span className="text-white">, </span><span className="text-yellow-300">i</span><span className="text-white">) => </span><span className="text-yellow-300">i</span> <span className="text-white">!==</span> <span className="text-yellow-300">index</span><span className="text-white">));</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-yellow-300">setItems</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=&gt;</span> <span className="text-yellow-300">prev</span><span className="text-white">.</span><span className="text-purple-400">filter</span><span className="text-white">((</span><span className="text-yellow-300">_</span><span className="text-white">, </span><span className="text-yellow-300">i</span><span className="text-white">) =&gt; </span><span className="text-yellow-300">i</span> <span className="text-white">!==</span> <span className="text-yellow-300">index</span><span className="text-white">));</span>{'\n'}
                       <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
                       
                       <span className="text-green-400">// JSX: Array management UI</span>{'\n'}
@@ -288,7 +288,7 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                       
                       <span className="text-white">  </span><span className="text-green-400">{'// Dynamic list rendering'}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-red-400">&lt;div</span> <span className="text-green-300">className</span><span className="text-white">=</span><span className="text-yellow-200">"space-y-2"</span><span className="text-red-400">&gt;</span>{'\n'}
-                      <span className="text-white">    </span><span className="text-yellow-200">{'{'}</span><span className="text-yellow-300">items</span><span className="text-white">.</span><span className="text-purple-400">map</span><span className="text-white">((</span><span className="text-yellow-300">item</span><span className="text-white">, </span><span className="text-yellow-300">index</span><span className="text-white">) => (</span>{'\n'}
+                      <span className="text-white">    </span><span className="text-yellow-200">{'{'}</span><span className="text-yellow-300">items</span><span className="text-white">.</span><span className="text-purple-400">map</span><span className="text-white">((</span><span className="text-yellow-300">item</span><span className="text-white">, </span><span className="text-yellow-300">index</span><span className="text-white">) =&gt; (</span>{'\n'}
                       <span className="text-white">      </span><span className="text-red-400">&lt;div</span> <span className="text-green-300">key</span><span className="text-white">=</span><span className="text-yellow-200">{'{index}'}</span><span className="text-red-400">&gt;</span>{'\n'}
                       <span className="text-white">        </span><span className="text-red-400">&lt;span&gt;</span><span className="text-yellow-200">{'{'}</span><span className="text-yellow-300">item</span><span className="text-yellow-200">{'}'}</span><span className="text-red-400">&lt;/span&gt;</span>{'\n'}
                       <span className="text-white">        </span><span className="text-red-400">&lt;button</span> <span className="text-green-300">onClick</span><span className="text-white">=</span><span className="text-yellow-200">{'{() => removeItem(index)}'}</span><span className="text-red-400">&gt;</span>{'\n'}
@@ -351,7 +351,7 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                 <br />
                 <code className="text-red-700 bg-red-50 px-2 py-1 rounded">❌ user.name = newName</code>
                 <br />
-                <code className="text-green-700 bg-green-50 px-2 py-1 rounded">✅ setUser(prev => ({'{ ...prev, name: newName }'}))</code>
+                <code className="text-green-700 bg-green-50 px-2 py-1 rounded">✅ setUser(prev =&gt; ({'{ ...prev, name: newName }'}))</code>
               </div>
               
               {showObjectCode && (
@@ -363,15 +363,15 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                       <span className="text-blue-400">const</span> <span className="text-white">[</span><span className="text-yellow-300">user</span><span className="text-white">, </span><span className="text-yellow-300">setUser</span><span className="text-white">] = </span><span className="text-purple-400">useState</span><span className="text-white">({'{ name: '}</span><span className="text-yellow-200">'John'</span><span className="text-white">, age: </span><span className="text-orange-400">25</span> <span className="text-white">{'}'});</span>{'\n\n'}
                       
                       <span className="text-green-400">// Helper function: Update user name (immutable)</span>{'\n'}
-                      <span className="text-blue-400">const</span> <span className="text-yellow-300">updateUserName</span> <span className="text-white">=</span> <span className="text-white">(</span><span className="text-yellow-300">newName</span><span className="text-white">:</span> <span className="text-blue-300">string</span><span className="text-white">) => </span><span className="text-yellow-200">{'{'}</span>{'\n'}
+                      <span className="text-blue-400">const</span> <span className="text-yellow-300">updateUserName</span> <span className="text-white">=</span> <span className="text-white">(</span><span className="text-yellow-300">newName</span><span className="text-white">:</span> <span className="text-blue-300">string</span><span className="text-white">) =&gt; </span><span className="text-yellow-200">{'{'}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-green-400">// Use spread operator to create new object</span>{'\n'}
-                      <span className="text-white">  </span><span className="text-yellow-300">setUser</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=></span> <span className="text-white">({'{ ...prev, name: newName }'});</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-yellow-300">setUser</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=&gt;</span> <span className="text-white">({'{ ...prev, name: newName }'});</span>{'\n'}
                       <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
                       
                       <span className="text-green-400">// Helper function: Increment user age (immutable)</span>{'\n'}
-                      <span className="text-blue-400">const</span> <span className="text-yellow-300">updateUserAge</span> <span className="text-white">=</span> <span className="text-white">() => </span><span className="text-yellow-200">{'{'}</span>{'\n'}
+                      <span className="text-blue-400">const</span> <span className="text-yellow-300">updateUserAge</span> <span className="text-white">=</span> <span className="text-white">() =&gt; </span><span className="text-yellow-200">{'{'}</span>{'\n'}
                       <span className="text-white">  </span><span className="text-green-400">// Preserve existing properties, update only age</span>{'\n'}
-                      <span className="text-white">  </span><span className="text-yellow-300">setUser</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=></span> <span className="text-white">({'{ ...prev, age: prev.age + 1 }'});</span>{'\n'}
+                      <span className="text-white">  </span><span className="text-yellow-300">setUser</span><span className="text-white">(</span><span className="text-yellow-300">prev</span> <span className="text-white">=&gt;</span> <span className="text-white">({'{ ...prev, age: prev.age + 1 }'});</span>{'\n'}
                       <span className="text-yellow-200">{'}'}</span><span className="text-white">;</span>{'\n\n'}
                       
                       <span className="text-green-400">// JSX: Object state management UI</span>{'\n'}
@@ -422,7 +422,7 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                 <strong className="text-blue-800">🔄 Functional Updates:</strong> <span className="text-blue-700">Use when new state depends on previous state</span>
                 <br />
                 <div className="mt-2 mb-2">
-                  <code className="text-blue-900 bg-blue-100 px-2 py-1 rounded font-medium">setCount(prev => prev + 1)</code> <span className="text-blue-800">vs</span> <code className="text-gray-800 bg-gray-100 px-2 py-1 rounded font-medium">setCount(count + 1)</code>
+                  <code className="text-blue-900 bg-blue-100 px-2 py-1 rounded font-medium">setCount(prev =&gt; prev + 1)</code> <span className="text-blue-800">vs</span> <code className="text-gray-800 bg-gray-100 px-2 py-1 rounded font-medium">setCount(count + 1)</code>
                 </div>
                 <p className="text-blue-700 text-xs mt-2">
                   <strong>Why functional updates?</strong> They ensure you're working with the latest state value, especially important in async operations, 
@@ -446,12 +446,12 @@ const [user, setUser] = useState({ name: 'Alice', age: 30 });`}</code>
                 <strong className="text-red-800">🕒 Stale Closure:</strong> <span className="text-red-700">A common pitfall in async operations</span>
                 <br />
                 <div className="mt-2 mb-2">
-                  <code className="text-red-900 bg-red-100 px-2 py-1 rounded font-medium">setTimeout(() => setCount(prev => prev + 1), 1000)</code>
+                  <code className="text-red-900 bg-red-100 px-2 py-1 rounded font-medium">setTimeout(() =&gt; setCount(prev =&gt; prev + 1), 1000)</code>
                 </div>
                 <p className="text-red-700 text-xs mt-2">
                   <strong>The problem:</strong> In closures (like setTimeout, useEffect), the <code className="bg-red-100 px-1 rounded">count</code> variable 
                   captures the value from when the closure was created, not the current value. Using functional updates 
-                  <code className="bg-red-100 px-1 rounded">prev => prev + 1</code> ensures you get the latest state.
+                  <code className="bg-red-100 px-1 rounded">prev =&gt; prev + 1</code> ensures you get the latest state.
                 </p>
               </div>
               
