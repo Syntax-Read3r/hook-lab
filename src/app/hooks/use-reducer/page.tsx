@@ -186,7 +186,7 @@ export default function UseReducerPage() {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       formDispatch({ type: 'submit_success', data: formState });
-    } catch (error) {
+    } catch {
       formDispatch({ type: 'submit_error' });
     }
   };

@@ -72,7 +72,14 @@ try {
   setError(error instanceof Error ? error.message : 'Something went wrong');
 }
 
-// Or if you really don't need the error
+// Or if you really don't need the error parameter
+try {
+  // some code
+} catch {
+  setError('Something went wrong');
+}
+
+// Or prefix with underscore if intentionally unused
 catch (_error) {
   setError('Something went wrong');
 }
@@ -80,8 +87,10 @@ catch (_error) {
 
 **Solution pattern:**
 1. Use the variable appropriately
-2. Prefix with underscore (`_error`) if intentionally unused
-3. Remove if truly not needed
+2. Remove the parameter entirely if not needed
+3. Prefix with underscore (`_error`) if intentionally unused
+
+**Recent fix:** In `src/app/hooks/use-reducer/page.tsx:189`, changed `} catch (error) {` to `} catch {` when the error parameter wasn't being used.
 
 ---
 
@@ -105,6 +114,37 @@ catch (_error) {
 1. Fix TypeScript errors first
 2. Fix ESLint errors second
 3. Test with `npm run build`
+
+#### **Error: `Cannot find module '../lightningcss.linux-x64-gnu.node'`**
+
+**What it means:** Missing or corrupted native dependencies, often related to Tailwind CSS or lightningcss.
+
+**Common scenarios:**
+- After switching between different operating systems
+- After system updates
+- Corrupted node_modules due to file system issues (especially in WSL)
+
+**❌ Issue:**
+```
+Error: Cannot find module '../lightningcss.linux-x64-gnu.node'
+```
+
+**✅ Solution:**
+```bash
+# Force reinstall all dependencies
+npm install --force
+
+# Alternative: Clear cache and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
+
+**Solution pattern:**
+1. Try `npm install --force` first (faster)
+2. If that fails, remove node_modules and reinstall
+3. Check that build passes after reinstall
+
+**Recent fix:** Encountered during CI deployment after useReducer page addition. Fixed with `npm install --force` which resolved the lightningcss dependency issue.
 
 ---
 
