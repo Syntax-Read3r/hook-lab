@@ -14,7 +14,7 @@ export default function Home() {
       title: 'useEffect',
       description: 'API data fetching and cleanup functions',
       path: '/hooks/use-effect',
-      status: 'pending'
+      status: 'completed'
     },
     {
       id: 3,
@@ -135,12 +135,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+      <div className="px-4 py-8 mx-auto max-w-7xl">
+        <header className="mb-12 text-center">
+          <h1 className="mb-4 text-4xl font-bold text-gray-900">
             🪝 Hook Lab
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="max-w-3xl mx-auto text-xl text-gray-600">
             Interactive playground for mastering React Hooks and Next.js features. 
             Each demo includes working examples, code explanations, and common gotchas.
           </p>
@@ -148,18 +148,18 @@ export default function Home() {
 
         {/* React Hooks Section */}
         <section className="mb-16">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+          <h2 className="flex items-center mb-6 text-2xl font-semibold text-gray-800">
             ⚛️ React Hooks
-            <span className="ml-3 text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+            <span className="px-2 py-1 ml-3 text-sm text-blue-800 bg-blue-100 rounded-full">
               Phase 1
             </span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {hookTasks.map((task) => (
               <Link
                 key={task.id}
                 href={task.path}
-                className="block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 p-6 border border-gray-200"
+                className="block p-6 transition-shadow duration-200 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg"
               >
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-lg font-semibold text-gray-900">
@@ -173,8 +173,8 @@ export default function Home() {
                     {task.status === 'completed' ? '✓' : '○'}
                   </span>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">{task.description}</p>
-                <div className="flex items-center text-blue-600 text-sm font-medium">
+                <p className="mb-4 text-sm text-gray-600">{task.description}</p>
+                <div className="flex items-center text-sm font-medium text-blue-600">
                   Try it out →
                 </div>
               </Link>
@@ -184,18 +184,18 @@ export default function Home() {
 
         {/* Next.js Features Section */}
         <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+          <h2 className="flex items-center mb-6 text-2xl font-semibold text-gray-800">
             ⚡ Next.js Features
-            <span className="ml-3 text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded-full">
+            <span className="px-2 py-1 ml-3 text-sm text-purple-800 bg-purple-100 rounded-full">
               Phase 2
             </span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {nextFeatures.map((feature) => (
               <Link
                 key={feature.id}
                 href={feature.path}
-                className="block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 p-6 border border-gray-200"
+                className="block p-6 transition-shadow duration-200 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg"
               >
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-lg font-semibold text-gray-900">
@@ -209,8 +209,8 @@ export default function Home() {
                     {feature.status === 'completed' ? '✓' : '○'}
                   </span>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">{feature.description}</p>
-                <div className="flex items-center text-purple-600 text-sm font-medium">
+                <p className="mb-4 text-sm text-gray-600">{feature.description}</p>
+                <div className="flex items-center text-sm font-medium text-purple-600">
                   Explore →
                 </div>
               </Link>
@@ -219,7 +219,7 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="mt-16 text-center text-gray-500 text-sm">
+        <footer className="mt-16 text-sm text-center text-gray-500">
           <p>Built with Next.js 15 + React 19 + TypeScript + Tailwind CSS</p>
         </footer>
       </div>
