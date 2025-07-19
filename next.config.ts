@@ -1,11 +1,13 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
-  output: "export",
-  basePath: process.env.NODE_ENV === "production" ? "/hook-lab" : "",      // enables static HTML export
-  trailingSlash: true,       // ensures all paths end with '/', required for GitHub Pages routing
+  ...(isProd && { output: "export" }),
+  basePath: isProd ? "/hook-lab" : "",
+  ...(isProd && { trailingSlash: true }),
   images: {
-    unoptimized: true,       // disables Image Optimization (required for static export)
+    unoptimized: isProd,
   },
 };
 

@@ -543,6 +543,37 @@ npm run build && ls -la out/     # Check build output
 
 ---
 
+## 🐧 WSL Development Environment
+
+### ✅ Recommended Setup: WSL + Linux
+
+**Why WSL is preferred:**
+- Same environment as CI/CD (Linux)
+- No binary compatibility issues
+- Standard development setup for Node.js/React
+- All npm packages work as expected
+- Better terminal experience
+
+**Setup:**
+```bash
+# Navigate to project in WSL
+cd /mnt/c/Users/_munya/Code/Projects/GithubIO/Hook\ Lab/hook-lab
+
+# Install dependencies (Linux binaries)
+npm install
+
+# Development server
+npm run dev
+```
+
+**Benefits:**
+- Consistent with GitHub Actions CI/CD environment
+- No Windows/Linux binary conflicts
+- All troubleshooting guides assume Linux environment
+- Better compatibility with Node.js ecosystem
+
+---
+
 ## 🔍 Future Prevention
 
 ### Pre-commit Checklist
