@@ -5,7 +5,7 @@
 ### Added
 - **GitHub Pages Deployment**: Modern GitHub Actions workflow for automatic deployment
 - **Documentation**: Complete README.md with project overview, features, and getting started guide
-- **How-to Guide**: Step-by-step tutorial for recreating similar projects
+- **How-to Guide**: Step--by--step tutorial for recreating similar projects
 
 ### Changed
 - **Next.js Configuration**: Updated to use modern `output: "export"` instead of deprecated `next export`
