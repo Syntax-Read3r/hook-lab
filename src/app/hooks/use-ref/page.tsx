@@ -10,7 +10,7 @@ export default function UseRefPage() {
   
   // Previous value tracking
   const [count, setCount] = useState(0);
-  const prevCountRef = useRef<number>();
+  const prevCountRef = useRef<number>(0);
   
   // Uncontrolled component ref
   const uncontrolledInputRef = useRef<HTMLInputElement>(null);
