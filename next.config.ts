@@ -4,7 +4,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig: NextConfig = {
   ...(isProd && { output: "export" }),
-  basePath: "",
+  basePath: isProd ? "/hook-lab" : "",
   ...(isProd && { trailingSlash: true }),
   images: {
     unoptimized: isProd,
