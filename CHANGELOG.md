@@ -9,7 +9,7 @@
 
 ### Changed
 - **Next.js Configuration**: Updated to use modern `output: "export"` instead of deprecated `next export`
-- **Package Scripts**: Simplified build process for static export
+- **Package Script**: Simplified build process for static export
 - **Project Structure**: Reorganized documentation with dedicated docs directory
 
 ### Fixed
